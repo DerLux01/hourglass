@@ -1,7 +1,13 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using System.Collections.ObjectModel;
+using CommunityToolkit.Mvvm.ComponentModel;
+using hourglass.Models;
 
 namespace hourglass.ViewModels;
 
-public abstract class ViewModelBase : ObservableObject
+public abstract partial class ViewModelBase : ObservableObject
 {
+    [ObservableProperty] private ObservableCollection<MediaItem>? _filteredItems;
+
+    [ObservableProperty] private MediaStatus _selectedFilter = MediaStatus.InProgress;
+    
 }

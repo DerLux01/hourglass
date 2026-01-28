@@ -1,8 +1,13 @@
 */bin/
 */obj/
+Debug/
+Release/
+CodeAnalyst/
 */config/
 .env
 .idea
 *.sqlite3
 *.sqlite
 *.db
+global.json
+*.user
