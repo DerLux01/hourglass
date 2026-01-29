@@ -6,35 +6,28 @@ using Microsoft.EntityFrameworkCore;
 
 namespace hourglass.Services;
 
-public class MediaService : IMediaService
+public class MediaService(AppDbContext dbContext) : IMediaService
 {
-    private readonly AppDbContext _dbContext;
-    
-    public MediaService(AppDbContext dbContext)
-    {
-        _dbContext = dbContext;
-    }
-    
     public async Task<List<MediaItem>> GetAllMediaItemsAsync()
     {
-        return await _dbContext.MediaItem.Include(x => x.Genres).ToListAsync();
+        return await dbContext.MediaItem.Include(x => x.Genres).ToListAsync();
     }
 
     public async Task AddItemAsync(MediaItem item)
     {
-        _dbContext.MediaItem.Add(item);
-        await _dbContext.SaveChangesAsync();
+        dbContext.MediaItem.Add(item);
+        await dbContext.SaveChangesAsync();
     }
 
     public async Task RemoveItemAsync(MediaItem item)
     {
-        _dbContext.MediaItem.Remove(item);
-        await _dbContext.SaveChangesAsync();
+        dbContext.MediaItem.Remove(item);
+        await dbContext.SaveChangesAsync();
     }
 
     public async Task UpdateItemAsync(MediaItem item)
     {
-        _dbContext.MediaItem.Update(item);
-        await _dbContext.SaveChangesAsync();
+        dbContext.MediaItem.Update(item);
+        await dbContext.SaveChangesAsync();
     }
 }
