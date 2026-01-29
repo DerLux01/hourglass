@@ -4,6 +4,6 @@ namespace hourglass.Models.ItemModels;
 
 public class Book : MediaItem
 {
-    public int? WordCount { get; set; }
+    public int? WordCount { get; init; }
     public int? PageCount { get; set; }
 }

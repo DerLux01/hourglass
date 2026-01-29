@@ -12,6 +12,7 @@ public abstract class MediaItem : IMediaItem
     public int Id { get; init; }
 
     [Required]
+    [MaxLength(128)]
     public string Title { get; set; } =  string.Empty;
     
     public MediaType Type { get; set; }
