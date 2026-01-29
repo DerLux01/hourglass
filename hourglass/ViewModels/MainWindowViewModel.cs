@@ -16,10 +16,10 @@ namespace hourglass.ViewModels;
 public partial class MainWindowViewModel : ViewModelBase
 {
     private readonly IMediaService _mediaService;
-    private List<MediaItem> _allItems;
+    private List<MediaItem>? _allItems;
 
     [ObservableProperty]
-    private ObservableCollection<MediaItem> _items;
+    private ObservableCollection<MediaItem>? _items;
 
     [ObservableProperty]
     private MediaType? _selectedMediaType;
@@ -46,9 +46,9 @@ public partial class MainWindowViewModel : ViewModelBase
     private void FilterItems()
     {
         if (_allItems == null) return;
-
-        var filtered = _selectedMediaType.HasValue
-            ? _allItems.Where(x => x.Type == _selectedMediaType.Value)
+        
+        var filtered = SelectedMediaType.HasValue
+            ? _allItems.Where(x => x.Type == SelectedMediaType.Value)
             : _allItems;
 
         Items = new ObservableCollection<MediaItem>(filtered);
@@ -62,9 +62,10 @@ public partial class MainWindowViewModel : ViewModelBase
             var window = new AddMediaItemWindow();
             var vm = new AddMediaItemViewModel(_mediaService, () => window.Close());
             window.DataContext = vm;
-            
-            await window.ShowDialog(desktop.MainWindow);
-            
+
+            if (desktop.MainWindow != null) 
+                await window.ShowDialog(desktop.MainWindow);
+
             LoadData();
         }
     }
