@@ -8,6 +8,8 @@ using Avalonia.Controls.ApplicationLifetimes;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using hourglass.Models;
+using hourglass.Models.Enums;
+using hourglass.Models.InfoModels;
 using hourglass.Services;
 using hourglass.Views;
 

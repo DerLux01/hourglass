@@ -1,4 +1,4 @@
-namespace hourglass.Models;
+namespace hourglass.Models.Enums;
 
 public enum MediaStatus
 {

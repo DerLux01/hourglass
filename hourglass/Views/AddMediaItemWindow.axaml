@@ -3,11 +3,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="using:hourglass.ViewModels"
-        mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="450"
+        mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="550"
         x:Class="hourglass.Views.AddMediaItemWindow"
         x:DataType="vm:AddMediaItemViewModel"
         Title="Add New Item"
-        Width="400" Height="450"
+        Width="400" Height="550"
         WindowStartupLocation="CenterOwner">
 
     <StackPanel Margin="20" Spacing="15">
@@ -28,6 +28,17 @@
         <NumericUpDown Value="{Binding TotalDurationOrPages}" 
                        Minimum="0" 
                        Watermark="Total Duration (min) or Pages"/>
+                       
+        <!-- Book specific fields -->
+        <StackPanel IsVisible="{Binding IsBookType}" Spacing="15">
+            <NumericUpDown Value="{Binding PageCount}" 
+                           Minimum="0" 
+                           Watermark="Page Count"/>
+                           
+            <NumericUpDown Value="{Binding WordCount}" 
+                           Minimum="0" 
+                           Watermark="Word Count"/>
+        </StackPanel>
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Spacing="10" Margin="0,20,0,0">
             <Button Command="{Binding CancelCommand}" Content="Cancel"/>

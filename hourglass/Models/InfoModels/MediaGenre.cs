@@ -1,4 +1,6 @@
-namespace hourglass.Models;
+using hourglass.Models.InfoModelBases;
+
+namespace hourglass.Models.InfoModels;
 
 public class MediaGenre
 {
