@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using hourglass.Data;
 using hourglass.Models;
+using hourglass.Models.InfoModels;
 using Microsoft.EntityFrameworkCore;
 
 namespace hourglass.Services;

@@ -1,6 +1,8 @@
 ﻿using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
 using hourglass.Models;
+using hourglass.Models.Enums;
+using hourglass.Models.InfoModels;
 
 namespace hourglass.ViewModels;
 
